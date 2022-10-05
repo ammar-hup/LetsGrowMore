@@ -1,6 +1,8 @@
+body{
+  font-family: 'Montserrat', sans-serif;
+}
 .container {
   text-align: center;
-  font-family: "Times New Roman", Times, serif;
 }
 header {
   /* background-color: #1b5779; */
@@ -13,12 +15,13 @@ header {
 }
 h2 {
   color: aliceblue;
-  margin: 0px;
+  margin: 0px 0px 10px;
 }
 input {
   height: 25px;
   padding-left: 0px;
   padding-right: 5px;
+  border-radius: 10px;
 }
 ::placeholder {
   color: #1b5779;
@@ -28,7 +31,8 @@ input {
 button {
   background-color: rgba(11, 104, 104, 0.991);
   border: none;
-  border-radius: 10%;
+  border-radius: 10px;
   padding: 7px;
   color: aliceblue;
 }
+
