@@ -1,14 +1,39 @@
+// creating an empty arrylist
 const toDoList = [];
-let inputValue = document.getElementById("input").value;
-let mybtn = document.getElementById("myBtn");
+// catch the input_field
+let input = document.getElementById("input");
+// the (Add) button
+let myBtn = document.getElementById("myBtn");
+// creat unorderd_list and set its Attributes
+let ul = document.createElement("ul");
+ul.setAttribute("id", "mainUl");
+// create a fragmant file
+let fragmant = document.createDocumentFragment();
 
 const getValueInput = () => {
+  // taking the input and add it to the list
+  let inputValue = input.value;
   toDoList.push(inputValue);
-  document.getElementById("input").value = "";
+  input.value = "";
+  // showing the item
+  let li = document.createElement("li");
+  li.setAttribute("class", "item");
+  li.textContent = inputValue;
+  li.style.cssText = `
+    // text-decoration: line-through;
+    list-style-type: none;
+    `;
+  ul.appendChild(li);
 };
-inputValue.addEventListener("keypress", function (event) {
-  if (event.key === "Enter") {
+
+// click on (Add) button with (Enter) key
+input.addEventListener("keypress", function (event) {
+  if (event.key === "Enter" && input.value != "") {
     event.preventDefault();
-    myBtn.click();
+    getValueInput();
   }
 });
+
+// show the arraylist items on the screen
+let list = document.getElementById("list");
+list.appendChild(ul);
