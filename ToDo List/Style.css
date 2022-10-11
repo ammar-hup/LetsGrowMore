@@ -1,0 +1,113 @@
+:root {
+  --primary: #ea40a4;
+  --business: #3a82ee;
+  --personal: var(--primary);
+  --light: #eee;
+  --grey: #888;
+  --dark: #313154;
+  --danger: #ff5b57;
+
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+  --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "montserrat", sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  font-family: "montserrat", sans-serif;
+}
+
+.container {
+  width: 500px;
+  margin: 20px auto;
+}
+
+header {
+  background: linear-gradient(0deg, #1b5779, rgb(31 51 122) 61%);
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  border-radius: 1.75rem;
+  box-shadow: var(--shadow);
+}
+h2 {
+  color: aliceblue;
+  margin: 0px 0px 10px;
+}
+input[type="submit"]:hover {
+  opacity: 0.75;
+}
+.input {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  flex: 1;
+}
+.input:focus {
+  outline: none;
+}
+::placeholder {
+  color: #1b5779;
+  font-size: 13px;
+  padding-left: 5px;
+}
+.add {
+  background-color: rgba(23, 106, 106, 0.991);
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
+  color: rgb(247, 247, 247);
+  cursor: pointer;
+}
+#tdlist {
+  background-color: #eee;
+  margin-top: 20px;
+  border-radius: 6px;
+  padding: 20px;
+}
+#tdlist .task {
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+#tdlist .task:not(:last-child) {
+  margin-bottom: 15px;
+}
+#tdlist .task span {
+  font-weight: bold;
+  font-size: 10px;
+  background-color: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#tdlist .task.done {
+  text-decoration: line-through;
+}
+#tdlist .task span:hover,
+#tdlist .del_all:hover {
+  opacity: 0.6;
+}
+
+#tdlist .del_all {
+  font-weight: bold;
+  font-size: 15px;
+  background-color: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 70%;
+}
