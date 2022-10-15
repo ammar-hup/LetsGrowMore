@@ -23,17 +23,18 @@ submit.onclick = function () {
     addTaskToList(input.value); // add task to list
     input.value = ""; // empty input field
   }
-  // click on (Add) button with (Enter) key
-  head.addEventListener("keypress", function (e) {
-    if (e.target.classList.contains("input")) {
-      if (e.key == "Enter" && input.value !== "") {
-        e.preventDefault();
-        addTaskToList(input.value); // add task to list
-        input.value = "";
-      }
-    }
-  });
 };
+
+// add a task with (Enter) key
+head.addEventListener("keypress", function (e) {
+  if (e.target.classList.contains("input")) {
+    if (e.key === "Enter" && input.value !== "") {
+      e.preventDefault();
+      addTaskToList(input.value); // add task to list
+      input.value = "";
+    }
+  }
+});
 
 // click on task
 tdlist.addEventListener("click", (e) => {
@@ -87,12 +88,6 @@ function addElemntsToPage(toDoList) {
     item.appendChild(span); // append the button to the div
     tdlist.appendChild(item); // add the tdlist to the main container
   });
-
-  // button to delete all tasks with one click
-  let deleteAll = document.createElement("span");
-  deleteAll.appendChild(document.createTextNode("Delete All Tasks"));
-  deleteAll.className = "del_all";
-  tdlist.appendChild(deleteAll);
 }
 
 // add data (tasks) to local storage
@@ -119,22 +114,8 @@ function deletTaskWithId(taskId) {
 function toggleStatusTaskWith(taskId) {
   for (const task of toDoList) {
     if (task.id == taskId) {
-      if (task.completed) {
-        task.completed = false;
-      } else {
-        task.completed = true;
-      }
+      task.classList.toggle("completed");
     }
   }
   addDataToLocalStorage(toDoList);
 }
-
-// claer all in page with one button 
-tdlist.addEventListener("click", (e) => {
-  // delete button
-  if (e.target.classList.contains("del_all")) {
-    // remove all tasks from local storage and from page
-    window.localStorage.removeItem("tdlist");
-    tdlist.innerHTML = "";
-  }
-});
